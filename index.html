@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactieve Stressmeter</title>
+
+  <!-- Voor didactisch gebruik aangepast door Robbe Wulgaert, Sint‑Lievenscollege Gent / AI in de Klas -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+    :root{--white:#fff;--primary:#5200FF;--secondary:#00FF99;--header-h:20vh;--main-h:70vh;--footer-h:10vh}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body,html{height:100%;font-family:'Roboto',sans-serif;font-weight:900;font-size:14px;background:var(--white)}
+    .header{height:var(--header-h);background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center}
+    .main{height:var(--main-h);padding:1rem;overflow-y:auto}
+    #controls{display:flex;flex-wrap:wrap;align-items:center;margin-bottom:1rem}
+    #controls button{margin-right:.5rem;padding:.5rem 1rem;font-size:1rem;background:var(--primary);color:#fff;border:none;cursor:pointer}
+    #controls button[disabled]{opacity:.4;cursor:not-allowed}
+    #debug{margin-left:auto;font-size:1rem;color:var(--primary)}
+    /* Grafiek responsive en 1/3 lager */
+    #stress-chart{border:1px solid #ccc;width:100%;max-width:100%;height:40vh;}
+    .footer{height:var(--footer-h);background:var(--secondary);display:flex;align-items:center;justify-content:center}
+    .footer small{color:#333}
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/smoothie@1.36/smoothie.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="header"><h1>Interactieve Stressmeter</h1></div>
+
+  <div class="main">
+    <div id="controls">
+      <button id="connectButton">Verbind met microcontroller</button>
+      <button id="btn-calibrate">Kalibreer (rust)</button>
+      <button id="btn-whatsapp">WhatsApp</button>
+      <button id="btn-messenger">Messenger</button>
+      <button id="btn-teams">Teams</button>
+      <button id="btn-sequence">Speel sequentie</button>
+      <div id="debug">Laatste: <span id="value-display">--</span> | Norm: <span id="norm-display">--%</span></div>
+    </div>
+
+    <!-- hoogte 300px i.p.v. 400 voor compacter canvas  -->
+    <canvas id="stress-chart" width="800" height="300"></canvas>
+
+    <audio id="audio-whatsapp" src="media/whatsapp.mp3" preload="auto"></audio>
+    <audio id="audio-messenger" src="media/messenger.mp3" preload="auto"></audio>
+    <audio id="audio-teams"    src="media/teams.mp3"    preload="auto"></audio>
+  </div>
+
+  <div class="footer"><small>© 2025 Robbe Wulgaert · AI in de Klas</small></div>
+</body>
+</html>
