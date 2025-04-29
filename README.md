@@ -1,5 +1,8 @@
 # Interactieve GSR‑Stressmeter (WebSerial + Smoothie)
 
+
+Link: https://robbew.github.io/arduino-leugendetector/
+
 Dit educatieve Arduino‑project laat **13‑jarige leerlingen** een eenvoudige *stress‑ / leugendetector* bouwen met slechts twee muntstukken, een RGB‑LED en een webpagina. Ze leren daarbij:
 
 * wat **galvanische huidrespons (GSR)** is — en hoe je het kunt meten;
